@@ -27,7 +27,8 @@ export default {
     return {
       apiUrl: 'https://api.themoviedb.org/3/search/movie',
       apikey: '20f2e48348860ecfa91f99da107394ca',
-      language: 'it-IT'
+      language: 'it-IT',
+      filmsArray: []
 
     }
   },
@@ -42,7 +43,8 @@ export default {
                 }
             })
             .then( response => {
-               console.log(response);
+               console.log(response.data.results);
+               this.filmsArray = response.data.results;
             });
         console.log(text);
     }
