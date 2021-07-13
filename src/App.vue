@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @ricerca="researchMovie"/>
-    <Main :films="filmsArray"/>
+    <Main :films="filmsArray" :range= "rangeRequired"/>
   </div>
 </template>
 
@@ -25,12 +25,15 @@ export default {
       apiUrl: 'https://api.themoviedb.org/3/search/movie',
       apikey: '20f2e48348860ecfa91f99da107394ca',
       language: 'it-IT',
-      filmsArray: []
+      filmsArray: [],
+      range: '',
+      
 
     }
   },
   methods: {
     researchMovie(text) {
+      this.range = text;
         axios
             .get(this.apiUrl, {
                 params: {
