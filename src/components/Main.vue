@@ -4,7 +4,8 @@
         <div class="search">
             <h2>Risultato ricerca: </h2>
             <div class="cards">
-                <Card />
+                <Card v-for="film in films" :key="film.id" 
+                :info="film"/>
             </div>
         </div> 
       </div>
@@ -20,6 +21,10 @@ export default {
     name: "Main",
     components: {
         Card,
+
+    },
+    props: {
+        films: Array
     }
 }
 </script>

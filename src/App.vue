@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <Header @ricerca="researchMovie"/>
-    <Main />
-   <!--  <img alt="Vue logo" src="./assets/logo.png"> -->
-    
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <Main :films="filmsArray"/>
   </div>
 </template>
 
