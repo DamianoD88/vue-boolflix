@@ -2,7 +2,7 @@
   <div id="app">
     <Header @ricerca="researchMovie"/>
     <Main />
-    <img alt="Vue logo" src="./assets/logo.png">
+   <!--  <img alt="Vue logo" src="./assets/logo.png"> -->
     <h2>BoolFlix</h2>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
@@ -22,6 +22,12 @@ export default {
     // HelloWorld
     Header,
     Main
+  },
+  data() {
+    return {
+      apikey: '',
+
+    }
   },
   methods: {
     researchMovie(text) {
