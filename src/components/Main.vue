@@ -1,11 +1,14 @@
 <template>
   <main>
-      <div class="search">
-          <h2>Risultato ricerca: </h2>
-          <div class="cards">
-              <Card />
-          </div>
+      <div class="container">
+        <div class="search">
+            <h2>Risultato ricerca: </h2>
+            <div class="cards">
+                <Card />
+            </div>
+        </div> 
       </div>
+     
   </main>
 </template>
 
