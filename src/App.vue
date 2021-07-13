@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 import Header from "@/components/Header.vue";
 import Main from "@/components/Main.vue";
 
@@ -25,12 +25,25 @@ export default {
   },
   data() {
     return {
-      apikey: '',
+      apiUrl: 'https://api.themoviedb.org/3/search/movie',
+      apikey: '20f2e48348860ecfa91f99da107394ca',
+      language: 'it-IT'
 
     }
   },
   methods: {
     researchMovie(text) {
+        axios
+            .get(this.apiUrl, {
+                params: {
+                  api_key: this.apikey,
+                  language: this.language,
+                  query: text
+                }
+            })
+            .then( response => {
+               console.log(response);
+            });
         console.log(text);
     }
   }
