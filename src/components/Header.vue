@@ -24,8 +24,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../style/utilities";
-@import "../styles/vars";
+@import "@/style/utilities.scss";
+@import "../style/vars.scss";
 
 
 </style>
