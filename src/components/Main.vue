@@ -4,6 +4,7 @@
         <div class="search">
             <h2>Risultato ricerca: {{ range }} </h2>
             <div class="cards">
+                <!-- passo dal padre Header al figlio Main la props :film -->
                 <Card v-for="film in films" :key="film.id" 
                 :info="film"/>
             </div>
@@ -23,11 +24,8 @@ export default {
         Card,
 
     },
-    props: {
-        films: Array,
-        range: String
-    }
-}
+    props: ["films", "range"] 
+};
 </script>
 
 <style scoped lang="scss">

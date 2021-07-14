@@ -12,8 +12,11 @@
 <script>
 export default {
     name: "Card",
-    props: ["info"]
+    // Card ha preso l'oggetto info da Main
+    props: ["info"],
+    
 };
+
 </script>
 
 <style scoped lang="scss">

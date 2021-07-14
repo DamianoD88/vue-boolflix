@@ -24,8 +24,9 @@ export default {
       tvUrl: 'https://api.themoviedb.org/3/search/tv',
       apikey: '20f2e48348860ecfa91f99da107394ca',
       language: 'it-IT',
-      filmsArray: [],
+      filmsArray: '',
       range: '',
+      rangeRequired:''
       
       
       
