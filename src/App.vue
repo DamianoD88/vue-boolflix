@@ -40,7 +40,7 @@ export default {
       this.range = text;
 
       // Metodo all
-
+      // metto tutto params in una variabile const per quando mi serve usarla chiamandola request
       const request = {
             params: {
                    api_key: this.apikey,
@@ -51,8 +51,14 @@ export default {
 
       axios
           .all([
-              axios.get(this.apiUrl, request)
+            // dentro all le due chiamate ma volendo tutte quelle che si vogliono 
+              axios.get(this.apiUrl, request),
+              axios.get(this.tvUrl, request)
           ])
+          // quando ci sono più chiamate (get) posso utilizzare axios.spread
+          .then(axios.spread(respMovie, respTv))
+          // respMovie rappresenta la prima chiamat api
+          // respTv rappresenta la seconda chiamata api
       
         // axios
         //     .get(this.apiUrl, {
