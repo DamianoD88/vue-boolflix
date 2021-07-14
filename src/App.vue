@@ -26,7 +26,8 @@ export default {
       language: 'it-IT',
       filmsArray: '',
       range: '',
-      rangeRequired:''
+      rangeRequired:'',
+      tvArray: ''
       
       
       
@@ -37,19 +38,31 @@ export default {
     // text è un segnaposto di searchText di Header, fa la chiamata sulla base del parametro searchText di Header*
     researchMovie(text) {
       this.range = text;
-        axios
-            .get(this.apiUrl, {
-                params: {
-                  api_key: this.apikey,
-                  language: this.language,
-                  query: text
-                }
-            })
-            .then( response => {
-               console.log(response.data.results);
-               this.filmsArray = response.data.results;
-            });
-        console.log(text);
+
+      // Metodo all
+
+      const request = {
+            params: {
+                   api_key: this.apikey,
+                   language: this.language,
+                   query: text
+                 }
+      };
+
+      axios
+          .all([
+              axios.get(this.apiUrl, request)
+          ])
+      
+        // axios
+        //     .get(this.apiUrl, {
+        //         
+        //     })
+        //     .then( response => {
+        //        console.log(response.data.results);
+        //        this.filmsArray = response.data.results;
+        //     });
+        // console.log(text);
     }
   }
 }
