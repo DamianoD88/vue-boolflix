@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <!-- app.vue prende l'emit inviato da Header richiamando una funzione(researchMovie)
+    passandogli quel parametro (nei methods)* -->
     <Header @ricerca="researchMovie"/>
     <Main :films="filmsArray" :range= "rangeRequired"/>
   </div>
@@ -10,28 +12,28 @@ import axios from "axios";
 import Header from "@/components/Header.vue";
 import Main from "@/components/Main.vue";
 
-
-/* import HelloWorld from './components/HelloWorld.vue' */
-
 export default {
   name: 'App',
   components: {
-    // HelloWorld
     Header,
     Main
   },
   data() {
     return {
       apiUrl: 'https://api.themoviedb.org/3/search/movie',
+      tvUrl: 'https://api.themoviedb.org/3/search/tv',
       apikey: '20f2e48348860ecfa91f99da107394ca',
       language: 'it-IT',
       filmsArray: [],
       range: '',
       
+      
+      
 
     }
   },
   methods: {
+    // text è un segnaposto di searchText di Header, fa la chiamata sulla base del parametro searchText di Header*
     researchMovie(text) {
       this.range = text;
         axios
