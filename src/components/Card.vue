@@ -24,7 +24,7 @@ export default {
     props: ["info"],
     data(){
       return {
-          flags: ["en", "it", "sp", "usa", "fr", "nz"]
+          flags: ["en", "it", "sp", "usa", "fr", "nz", "ja"]
       }
     }
       
