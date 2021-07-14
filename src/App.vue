@@ -3,7 +3,7 @@
     <!-- app.vue prende l'emit inviato da Header richiamando una funzione(researchMovie)
     passandogli quel parametro (nei methods)* -->
     <Header @ricerca="researchMovie"/>
-    <Main :films="filmsArray" :range= "rangeRequired"/>
+    <Main :films="filmsArray" :tv="tvArray" :range= "rangeRequired"/>
   </div>
 </template>
 
@@ -56,8 +56,12 @@ export default {
               axios.get(this.tvUrl, request)
           ])
           // quando ci sono più chiamate (get) posso utilizzare axios.spread
-          .then(axios.spread(respMovie, respTv))
-          // respMovie rappresenta la prima chiamat api
+          .then(axios.spread( (respMovie, respTv) => {
+            this.filmsArray = respMovie.data.results;
+            this.tvArray = respTv.data.results;
+            // console.log(this.tvArray);
+          }));
+          // respMovie rappresenta la prima chiamata api
           // respTv rappresenta la seconda chiamata api
       
         // axios
