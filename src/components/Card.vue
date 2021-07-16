@@ -1,5 +1,15 @@
 <template>
-  <div class="card">
+  <div class="card" >
+
+    <img v-if="info.poster_path !== null"
+     :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" 
+     :alt="info.title == null ? info.name : info.title">
+
+    <img v-else 
+    src="../assets/img/not_found.png" 
+    :alt="info.title == null ? info.name
+    :info.title">
+
     <ul>
       <li><strong>Titolo: </strong> {{ info.title == null ? info.name : info.title }} </li>
       <li><strong>Titolo originale: </strong> {{ info.original_title || info.original_name }}      </li>
@@ -24,7 +34,8 @@ export default {
     props: ["info"],
     data(){
       return {
-          flags: ["en", "it", "sp", "usa", "fr", "nz", "ja"]
+          flags: ["en", "it", "sp", "usa", "fr", "nz", "ja"],
+          poster: ["",]
       }
     }
       
@@ -36,6 +47,7 @@ export default {
 <style scoped lang="scss">
 @import "@/style/utilities.scss";
 @import "../style/vars.scss";
+
 
 img {
       width: 50px;

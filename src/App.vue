@@ -3,7 +3,9 @@
     <!-- app.vue prende l'emit inviato da Header richiamando una funzione(researchMovie)
     passandogli quel parametro (nei methods)* -->
     <Header @ricerca="researchMovie"/>
-    <Main :films="filmsArray" :tv="tvArray" :range= "rangeRequired"/>
+    <Main :films="filmsArray" 
+    :tv="tvArray" 
+    :range= "rangeRequired"/>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
       filmsArray: '',
       range: '',
       rangeRequired:'',
-      tvArray: ''
+      tvArray: '',
       
       
       

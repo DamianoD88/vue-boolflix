@@ -5,14 +5,16 @@
             <h2>Risultato ricerca: {{ range }} </h2>
             <h4>Movies</h4>
             <div class="cards">
-                <!-- passo dal padre Header al figlio Main la props :film -->
-                <Card v-for="film in films" :key="film.id" 
+                <!-- passo dal padre Header al figlio Main la props :film ciclando su Card -->
+                <Card v-for="film in films" 
+                :key="film.id" 
                 :info="film"/>
             </div>
             <h4>Tv Series</h4>
             <div class="cards">
-                <!-- passo dal padre Header al figlio Main la props :film -->
-                <Card v-for="serieTv in tv" :key="serieTv.id" 
+                <!-- passo dal padre Header al figlio Main la props :film ciclando su Card -->
+                <Card v-for="serieTv in tv" 
+                :key="serieTv.id" 
                 :info="serieTv"/>
             </div>
         </div> 
